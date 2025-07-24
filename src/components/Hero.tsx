@@ -17,7 +17,7 @@ const Hero = () => {
   const images = ["/th01.png", "/th02.png", "/th03.png", "/th04.png"];
 
   return (
-    <div className="mt-40 flex flex-col items-center justify-center">
+    <div className="mt-40 flex flex-col items-center justify-center  border-b border-gray-200 dark:border-gray-700 pb-4">
       <h1 className="text-4xl md:text-6xl font-bold text-center mx-auto">
         Everything You Need for a Modern Interior
       </h1>
