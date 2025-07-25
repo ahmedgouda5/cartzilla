@@ -58,7 +58,7 @@ const Inspiration = () => {
               className="w-full h-full object-cover"
             />
           </div>
-          <div className="w-full md:w-[600px] h-[300px] rounded-lg overflow-hidden">
+          <div className="w-full md:w-[727px] h-[300px] rounded-lg overflow-hidden">
             <Image
               src="/inspire4.jpg"
               alt="Inspiration 4"
