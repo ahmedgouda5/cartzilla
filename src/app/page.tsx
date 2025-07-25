@@ -1,6 +1,7 @@
 import Hero from "@/components/Hero";
 import HeroNav from "@/components/HeroNav";
 import HouseParts from "@/components/HouseParts";
+import Inspiration from "@/components/Inspiration";
 import Navbar from "@/components/Navbar";
 import ProductsShow from "@/components/ProductsShow";
 
@@ -21,6 +22,11 @@ export default function Home() {
           </section>
           <section className="ProductsShow mb-2">
             <ProductsShow />
+          </section>
+          <section>
+            <div className="Inspiration mb-2">
+              <Inspiration />
+            </div>
           </section>
         </main>
       </div>

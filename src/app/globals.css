@@ -3,6 +3,19 @@
 
 @custom-variant dark (&:is(.dark *));
 
+.custom-scroll::-webkit-scrollbar {
+  height: 3px; 
+}
+
+.custom-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.custom-scroll::-webkit-scrollbar-thumb {
+  background-color: #bbb; 
+  border-radius: 8px; 
+  border: 1px solid transparent;
+}
 
 @theme inline {
   --color-background: var(--background);
