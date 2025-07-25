@@ -49,7 +49,7 @@ const Inspiration = () => {
         </div>
 
         <div className="flex flex-col gap-4">
-          <div className="w-full md:w-[600px] h-[400px] rounded-lg overflow-hidden">
+          <div className="w-full md:w-[727px] h-[400px] rounded-lg overflow-hidden">
             <Image
               src="/inspier3.jpg"
               alt="Inspiration 3"
