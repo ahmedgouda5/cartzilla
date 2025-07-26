@@ -1,8 +1,11 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import { ThemeProvider } from "@/components/theme-provider"
+import { ThemeProvider } from "@/components/theme-provider";
+import Navbar from "@/components/Navbar";
+import { Footer } from "@/components/Footer";
 import { ReduxProvider } from "../../Providers/ReduxProvider ";
+import HeroNav from "@/components/HeroNav";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -26,16 +29,24 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${geistSans.variable} ${geistMono.variable}`}>
-      <body className="antialiased  dark:bg-slate-800">
+      <body className="antialiased dark:bg-slate-800 overflow-x-hidden">
         <ReduxProvider>
-        <ThemeProvider
+          <ThemeProvider
             attribute="class"
             defaultTheme="system"
             enableSystem
             disableTransitionOnChange
           >
-            
-            {children}
+            <div className="w-[90%] mx-auto min-h-screen relative overflow-hidden">
+              <nav>
+                <Navbar />
+              </nav>
+              <section><HeroNav /></section>
+              <main>{children}</main>
+            </div>
+            <footer className="bg-gray-800">
+              <Footer />
+            </footer>
           </ThemeProvider>
         </ReduxProvider>
       </body>

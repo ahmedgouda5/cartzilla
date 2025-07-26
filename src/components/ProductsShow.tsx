@@ -14,6 +14,7 @@ import { FaRegHeart } from "react-icons/fa";
 import { useDispatch } from "react-redux";
 import type { AppDispatch } from "./../../store/store";
 import { addToCart } from "../../store/slices/Cartslice";
+import Link from "next/link";
 
 const ProductsShow = () => {
   const swiperRef = useRef<SwiperClass | null>(null);
@@ -25,7 +26,7 @@ const ProductsShow = () => {
       <div className="flex items-center justify-between  mb-10 border-b border-gray-200 dark:border-gray-700 pb-4">
         <h1 className="text-2xl sm:text-3xl font-bold ">Popular products</h1>
         <h4 className="flex items-center relative group cursor-pointer ">
-          View All <GoChevronRight />
+          <Link href="/products">View All</Link> <GoChevronRight />
           <span className="absolute left-0 -bottom-1 h-[1px] w-0 bg-black  dark:bg-white transition-all duration-300 group-hover:w-full"></span>
         </h4>
       </div>
@@ -60,7 +61,7 @@ const ProductsShow = () => {
         >
           {Products.map((image, index) => (
             <SwiperSlide key={index}>
-              <div className="group relative flex flex-col  shadow-md rounded-lg overflow-hidden transition-all duration-300 w-full max-w-xs sm:max-w-sm md:max-w-md">
+              <div data-aos="zoom-in-down" className="group relative flex flex-col  shadow-md rounded-lg overflow-hidden transition-all duration-300 w-full max-w-xs sm:max-w-sm md:max-w-md">
                 <div className="relative w-full min-h-[200px] sm:min-h-[250px] md:min-h-[280px] lg:min-h-[300px] overflow-hidden">
                   <Image
                     width={500}

@@ -25,7 +25,7 @@ const Hero = () => {
       <div className="relative w-full max-w-6xl mt-10">
         <button
           onClick={() => swiperRef.current?.slidePrev()}
-          className="absolute left-2 top-1/2 -translate-y-2.5 -translate-x-2.5 z-10 
+          className="absolute left-3 top-1/2 -translate-y-2.5 -translate-x-2.5 z-10 
              w-12 h-12 md:w-14 md:h-14 
              flex items-center justify-center 
              border-2 border-gray-400 
@@ -36,7 +36,7 @@ const Hero = () => {
 
         <button
           onClick={() => swiperRef.current?.slideNext()}
-          className="absolute right-2 top-1/2 -translate-y-2.5 translate-x-2.5  z-10 
+          className="absolute right-3 top-1/2 -translate-y-2.5 translate-x-2.5  z-10 
              w-12 h-12 md:w-14 md:h-14 
              flex items-center justify-center 
              border-2  

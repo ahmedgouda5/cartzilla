@@ -7,6 +7,7 @@ import Cart from "./Cart";
 import { useState } from "react";
 import { RootState } from "../../store/store";
 import { useSelector } from "react-redux";
+import Link from "next/link";
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
@@ -14,26 +15,26 @@ const Navbar = () => {
 
   return (
     <>
-      <nav className="absolute top-0 left-0 right-0 bg-white dark:bg-slate-800 shadow-lg  flex justify-between items-center py-2 px-3 rounded-full mt-10">
+      <nav className="absolute top-0 left-0 right-0 z-10  bg-white dark:bg-slate-800 shadow-lg  flex justify-between items-center py-2 px-3 rounded-full mt-10">
         <div className="md:hidden font-bold text-3xl">
           <FiMenu />
         </div>
         <h1 className="Logo font-bold text-2xl">Cartzilla</h1>
         <ul className=" hidden md:flex justify-between items-center gap-10 ">
           <li className="relative group cursor-pointer">
-            Home
+           <Link href="/">Home</Link>
             <span className="absolute left-0 -bottom-1 h-[2px] w-0 bg-black dark:bg-white transition-all duration-300 group-hover:w-full"></span>
           </li>
           <li className="relative group cursor-pointer">
-            shop
+            <Link href="/products">Shop</Link>
             <span className="absolute left-0 -bottom-1 h-[2px] w-0 bg-black dark:bg-white transition-all duration-300 group-hover:w-full"></span>
           </li>
           <li className="relative group cursor-pointer">
-            Account
+            <Link href="/account">Account</Link>
             <span className="absolute left-0 -bottom-1 h-[2px] w-0 bg-black dark:bg-white transition-all duration-300 group-hover:w-full"></span>
           </li>
           <li className="relative group cursor-pointer">
-            pages
+            <Link href="/pages">Pages</Link>
             <span className="absolute left-0 -bottom-1 h-[2px] w-0 bg-black dark:bg-white transition-all duration-300 group-hover:w-full"></span>
           </li>
         </ul>

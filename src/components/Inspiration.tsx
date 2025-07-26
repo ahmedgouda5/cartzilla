@@ -1,4 +1,6 @@
 import Image from "next/image";
+import { Button } from "./ui/button";
+import { SiGoogledisplayandvideo360 } from "react-icons/si";
 
 const Inspiration = () => {
   return (
@@ -27,7 +29,13 @@ const Inspiration = () => {
       </div>
 
       <div className="flex flex-col md:flex-row gap-4">
-        <div className="flex flex-col gap-4">
+        <div
+          data-aos="fade-reight"
+          data-aos-offset="300"
+          data-aos-easing="ease-in-sine"
+          data-aos-duration="500"
+          className="flex flex-col gap-4"
+        >
           <div className="w-full md:w-[400px] h-[300px] rounded-lg overflow-hidden">
             <Image
               src="/inspire1.jpg"
@@ -48,8 +56,13 @@ const Inspiration = () => {
           </div>
         </div>
 
-        <div className="flex flex-col gap-4">
-          <div className="w-full md:w-[727px] h-[400px] rounded-lg overflow-hidden">
+        <div
+          data-aos="fade-left"
+          data-aos-offset="300"
+          data-aos-easing="ease-in-sine"
+          className="flex flex-col gap-4 "
+        >
+          <div className=" w-full md:w-[650px] h-[400px] rounded-lg overflow-hidden">
             <Image
               src="/inspier3.jpg"
               alt="Inspiration 3"
@@ -58,7 +71,7 @@ const Inspiration = () => {
               className="w-full h-full object-cover"
             />
           </div>
-          <div className="w-full md:w-[727px] h-[300px] rounded-lg overflow-hidden">
+          <div className="w-full md:w-[650px] h-[300px] rounded-lg overflow-hidden">
             <Image
               src="/inspire4.jpg"
               alt="Inspiration 4"
@@ -121,6 +134,41 @@ const Inspiration = () => {
             Decorate your space with eco-friendly furniture with low VOCs,
             environmentally friendly materials and safe coatings.
           </p>
+        </div>
+      </div>
+
+      <div className="flex flex-col md:flex-row items-stretch rounded-lg shadow-lg my-14  min-h-[350px]">
+        <div className="bg-gray-700 dark:text-black  p-4  shadow-md w-full md:w-1/2 h-full flex flex-col items-center justify-between">
+          <Image
+            src="/08.png"
+            alt="Eco-friendly furniture"
+            width={400}
+            height={200}
+          />
+          <Button className="flex items-center gap-2 rounded-2xl bg-gray-900 text-white">
+            <SiGoogledisplayandvideo360 />
+            Play
+          </Button>
+        </div>
+
+        <div className=" bg-gray-600 p-4 text-white  shadow-md w-full md:w-1/2 h-full flex flex-col items-center justify-between">
+          <div className="text-center">
+            <h5 className="text-lg font-bold">BEST DEAL</h5>
+            <p>Scandinavian green chair with wooden legs 60x100 cm</p>
+          </div>
+          <Image
+            src="/featured-product-thumbnail.jpg"
+            alt="Eco-friendly furniture"
+            className="rounded-xl"
+            width={320}
+            height={200}
+          />
+          <p className="text-lg font-semibold ">$357.00</p>
+          <Button>
+           
+           
+            Shop Now
+          </Button>
         </div>
       </div>
     </div>
