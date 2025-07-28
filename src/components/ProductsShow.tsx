@@ -5,7 +5,6 @@ import "swiper/css";
 import "swiper/css/free-mode";
 import "swiper/css/pagination";
 import { FreeMode, Pagination } from "swiper/modules";
-import { Products } from "../../Utilits/Index";
 import Image from "next/image";
 import { GoChevronLeft, GoChevronRight } from "react-icons/go";
 import { useRef } from "react";
@@ -15,6 +14,7 @@ import { useDispatch } from "react-redux";
 import type { AppDispatch } from "./../../store/store";
 import { addToCart } from "../../store/slices/Cartslice";
 import Link from "next/link";
+import { Products } from "../../Utilits/Index";
 
 const ProductsShow = () => {
   const swiperRef = useRef<SwiperClass | null>(null);
@@ -33,14 +33,14 @@ const ProductsShow = () => {
       <div className="py-10 px-4 relative">
         <button
           onClick={() => swiperRef.current?.slidePrev()}
-          className="absolute z-10 left-2 top-1/2 -translate-y-54 md:-translate-y-1/2 md:-translate-x-14 w-10 h-10 md:w-12 md:h-12 flex items-center justify-center border border-gray-400 rounded-full hover:bg-gray-100 dark:hover:bg-slate-800 transition"
+          className="absolute z-10 left-2 right-2 top-1/2 md:-translate-y-72 -translate-y-54 w-10 h-10 md:w-12 md:h-12 flex items-center justify-center border border-gray-400 rounded-full hover:bg-gray-100 dark:hover:bg-slate-800 transition"
         >
           <GoChevronLeft size={24} />
         </button>
 
         <button
           onClick={() => swiperRef.current?.slideNext()}
-          className="absolute z-10 right-2 top-1/2 -translate-y-54 md:-translate-y-1/2 md:translate-x-14 w-10 h-10 md:w-12 md:h-12 flex items-center justify-center border border-gray-400 rounded-full hover:bg-gray-100 dark:hover:bg-slate-800 transition"
+          className="absolute z-10 right-2 top-1/2 md:-translate-y-72 -translate-y-54  w-10 h-10 md:w-12 md:h-12 flex items-center justify-center border border-gray-400 rounded-full hover:bg-gray-100 dark:hover:bg-slate-800 transition"
         >
           <GoChevronRight size={24} />
         </button>

@@ -5,6 +5,7 @@ import { CiFilter } from "react-icons/ci";
 import { IoIosArrowDown } from "react-icons/io";
 import Filters from "./Filters";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 const FilterDropdown = ({
   label,
@@ -14,6 +15,9 @@ const FilterDropdown = ({
   options: string[];
 }) => {
   const [open, setOpen] = useState(false);
+
+
+  
 
   return (
     <div className="relative">
@@ -46,6 +50,8 @@ const FilterDropdown = ({
 
 const ProductsNav = () => {
   const [toggle, setToggle] = useState(false);
+    const pathname = usePathname();
+
 
   return (
     <div className="p-6">
@@ -88,8 +94,13 @@ const ProductsNav = () => {
         </div>
 
         <ul className="flex items-center gap-4 dark:text-white">
-          <li><Link href="/products">Products</Link></li>
-          <li><Link href="/products/room">Room</Link></li>
+          <li className={pathname === "/products" ? "font-bold border-b-2 border-black dark:border-white" : ""}>
+            <Link href="/products">Products</Link>
+          </li>
+          <li className={pathname === "/products/room" ? "font-bold border-b-2 border-black dark:border-white" : ""}>
+            <Link href="/products/room">Room</Link>
+            
+          </li>
         </ul>
       </div>
 
@@ -99,3 +110,4 @@ const ProductsNav = () => {
 };
 
 export default ProductsNav;
+

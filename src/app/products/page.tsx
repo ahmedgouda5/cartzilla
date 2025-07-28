@@ -1,9 +1,10 @@
+import AllProducts from "@/components/allProducts";
 
 
 const Page = () => {
   return (
     <div>
-      <h1>Products</h1>
+      <AllProducts />
     </div>
   );
 };

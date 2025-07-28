@@ -29,7 +29,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${geistSans.variable} ${geistMono.variable}`}>
-      <body className="antialiased dark:bg-slate-800 overflow-x-hidden">
+      <body className="antialiased dark:bg-slate-800 ">
         <ReduxProvider>
           <ThemeProvider
             attribute="class"
