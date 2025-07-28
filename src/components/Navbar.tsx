@@ -19,7 +19,9 @@ const Navbar = () => {
         <div className="md:hidden font-bold text-3xl">
           <FiMenu />
         </div>
-        <h1 className="Logo font-bold text-2xl">Cartzilla</h1>
+        <h1 className="Logo font-bold text-2xl">
+          <Link href="/">Cartzilla</Link>
+        </h1>
         <ul className=" hidden md:flex justify-between items-center gap-10 ">
           <li className="relative group cursor-pointer">
            <Link href="/">Home</Link>
