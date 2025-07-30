@@ -2,56 +2,19 @@
 
 import { useState } from "react";
 import { CiFilter } from "react-icons/ci";
-import { IoIosArrowDown } from "react-icons/io";
-import Filters from "./Filters";
+import FilterDropdown from "./FilterDropdown";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-
-const FilterDropdown = ({
-  label,
-  options,
-}: {
-  label: string;
-  options: string[];
-}) => {
-  const [open, setOpen] = useState(false);
-
-
-  
-
-  return (
-    <div className="relative">
-      <button
-        onClick={() => setOpen(!open)}
-        className="flex items-center justify-between gap-2 px-4 py-2 border rounded-lg min-w-[150px] bg-white hover:shadow"
-      >
-        {label}
-        <span className="ml-2">
-          <IoIosArrowDown />
-        </span>
-      </button>
-
-      {open && (
-        <div className="absolute left-0 mt-2 w-full bg-white border rounded-md shadow-lg z-10">
-          {options.map((option) => (
-            <label
-              key={option}
-              className="block px-4 py-2 hover:bg-gray-100 cursor-pointer"
-            >
-              <input type="checkbox" className="mr-2" />
-              {option}
-            </label>
-          ))}
-        </div>
-      )}
-    </div>
-  );
-};
+import Filters from "./Filters";
 
 const ProductsNav = () => {
+  const [openDropdown, setOpenDropdown] = useState<string | null>(null);
   const [toggle, setToggle] = useState(false);
-    const pathname = usePathname();
+  const pathname = usePathname();
 
+  const handleDropdownToggle = (label: string) => {
+    setOpenDropdown((prev) => (prev === label ? null : label));
+  };
 
   return (
     <div className="p-6">
@@ -62,6 +25,8 @@ const ProductsNav = () => {
           <FilterDropdown
             label="Sort by"
             options={["Best Sellers", "New Arrivals", "On Sale"]}
+            isOpen={openDropdown === "Sort by"}
+            onClick={() => handleDropdownToggle("Sort by")}
           />
           <FilterDropdown
             label="Categories"
@@ -74,14 +39,20 @@ const ProductsNav = () => {
               "Decoration",
               "Accessories",
             ]}
+            isOpen={openDropdown === "Categories"}
+            onClick={() => handleDropdownToggle("Categories")}
           />
           <FilterDropdown
             label="Types"
             options={["Chair", "Table", "Lamp", "Sofa"]}
+            isOpen={openDropdown === "Types"}
+            onClick={() => handleDropdownToggle("Types")}
           />
           <FilterDropdown
             label="Colors"
             options={["Black", "White", "Gray", "Brown"]}
+            isOpen={openDropdown === "Colors"}
+            onClick={() => handleDropdownToggle("Colors")}
           />
 
           <span
@@ -99,7 +70,6 @@ const ProductsNav = () => {
           </li>
           <li className={pathname === "/products/room" ? "font-bold border-b-2 border-black dark:border-white" : ""}>
             <Link href="/products/room">Room</Link>
-            
           </li>
         </ul>
       </div>
@@ -110,4 +80,3 @@ const ProductsNav = () => {
 };
 
 export default ProductsNav;
-

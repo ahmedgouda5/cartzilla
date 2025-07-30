@@ -15,6 +15,7 @@ import type { AppDispatch } from "./../../store/store";
 import { addToCart } from "../../store/slices/Cartslice";
 import Link from "next/link";
 import { Products } from "../../Utilits/Index";
+import { toast } from "sonner";
 
 const ProductsShow = () => {
   const swiperRef = useRef<SwiperClass | null>(null);
@@ -61,7 +62,10 @@ const ProductsShow = () => {
         >
           {Products.map((image, index) => (
             <SwiperSlide key={index}>
-              <div data-aos="zoom-in-down" className="group relative flex flex-col  shadow-md rounded-lg overflow-hidden transition-all duration-300 w-full max-w-xs sm:max-w-sm md:max-w-md">
+              <div
+                data-aos="zoom-in-down"
+                className="group relative flex flex-col  shadow-md rounded-lg overflow-hidden transition-all duration-300 w-full max-w-xs sm:max-w-sm md:max-w-md"
+              >
                 <div className="relative w-full min-h-[200px] sm:min-h-[250px] md:min-h-[280px] lg:min-h-[300px] overflow-hidden">
                   <Image
                     width={500}
@@ -98,7 +102,7 @@ const ProductsShow = () => {
                   </div>
 
                   <button
-                    onClick={() =>
+                    onClick={() => {
                       dispatch(
                         addToCart({
                           id: image.id,
@@ -106,8 +110,9 @@ const ProductsShow = () => {
                           price: image.price,
                           image: image.src,
                         })
-                      )
-                    }
+                      );
+                      toast.success("Added to cart!");
+                    }}
                     className="mt-2 bg-gray-900 dark:bg-white text-white dark:text-gray-900 py-2 rounded-lg text-sm sm:text-base hover:bg-gray-800 transition-all"
                   >
                     Add to Cart

@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 const HeroNav = () => {
 
   return (
@@ -10,7 +12,7 @@ const HeroNav = () => {
           <span className="absolute left-0 -bottom-1 h-[1px] w-0 bg-black transition-all duration-300 group-hover:w-full"></span>
         </li>
         <li className="relative group cursor-pointer">
-          Account
+         <Link href="/register">Account</Link>
           <span className="absolute left-0 -bottom-1 h-[1px] w-0 bg-black transition-all duration-300 group-hover:w-full"></span>
         </li>
       </ul>

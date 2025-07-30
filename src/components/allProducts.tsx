@@ -9,6 +9,7 @@ import { addToCart } from "../../store/slices/Cartslice";
 import Link from "next/link";
 import { ProducView } from "../../Utilits/Index";
 import { useState } from "react";
+import { toast } from "sonner";
 
 const AllProducts = () => {
   const dispatch = useDispatch<AppDispatch>();
@@ -61,7 +62,7 @@ const AllProducts = () => {
               </div>
 
               <button
-                onClick={() =>
+                onClick={() => {
                   dispatch(
                     addToCart({
                       id: item.id,
@@ -69,8 +70,9 @@ const AllProducts = () => {
                       price: item.price,
                       image: item.src,
                     })
-                  )
-                }
+                  );
+                  toast.success(" Added to cart!");
+                }}
                 className="mt-2 bg-gray-900 dark:bg-white text-white dark:text-gray-900 py-2 rounded-lg text-sm sm:text-base hover:bg-gray-800 transition-all"
               >
                 Add to Cart

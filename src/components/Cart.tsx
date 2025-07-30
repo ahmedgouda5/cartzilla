@@ -7,6 +7,7 @@ import { AppDispatch, RootState } from "../../store/store";
 import Image from "next/image";
 import { HiOutlineTrash } from "react-icons/hi";
 import { removeFromCart } from "../../store/slices/Cartslice";
+import { toast } from "sonner";
 
 const Cart = ({ open, onClose }: { open: boolean; onClose: () => void }) => {
   const items = useSelector((state: RootState) => state.cart.items);
@@ -79,7 +80,10 @@ const Cart = ({ open, onClose }: { open: boolean; onClose: () => void }) => {
                   </div>
                   <button
                     className="text-red-500 text-2xl hover:text-red-700"
-                    onClick={() => dispatch(removeFromCart({ id: item.id }))}
+                    onClick={() => {
+                      dispatch(removeFromCart({ id: item.id }));
+                      toast.success("Item removed from cart!");
+                    }}
                   >
                     <HiOutlineTrash />
                   </button>
