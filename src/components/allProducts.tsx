@@ -10,11 +10,12 @@ import Link from "next/link";
 import { ProducView } from "../../Utilits/Index";
 import { useState } from "react";
 import { toast } from "sonner";
+import { useRouter } from "next/navigation";
 
 const AllProducts = () => {
   const dispatch = useDispatch<AppDispatch>();
   const [products, setProducts] = useState<number>(8);
-
+const router=useRouter()
   return (
     <>
       <div className="flex items-center justify-between mb-10 border-b border-gray-200 dark:border-gray-700 ">
@@ -29,6 +30,9 @@ const AllProducts = () => {
         {ProducView.slice(0, products).map((item) => (
           <div
             key={item.id}
+            onClick={() => {
+              router.push(`/products/${item.id}`);
+            }}
             className="group relative flex flex-col shadow-md rounded-lg overflow-hidden transition-all duration-300"
           >
             <div className="relative w-full h-60 sm:h-72 overflow-hidden">
@@ -80,22 +84,20 @@ const AllProducts = () => {
             </div>
           </div>
         ))}
-      
       </div>
-        <div className="flex justify-center flex-col items-center mt-8">
-      
-          <span>
-            {products} of {ProducView.length} products shown
-          </span>
-          {products < ProducView.length && (
-            <button
-              onClick={() => setProducts(products + 4)}
-              className="mt-4 bg-gray-900 dark:bg-white text-white dark:text-gray-900 py-2 px-4 rounded-lg text-sm sm:text-base hover:bg-gray-800 transition-all"
-            >
-              Load More
-            </button>
-          )}
-        </div>
+      <div className="flex justify-center flex-col items-center mt-8">
+        <span>
+          {products} of {ProducView.length} products shown
+        </span>
+        {products < ProducView.length && (
+          <button
+            onClick={() => setProducts(products + 4)}
+            className="mt-4 bg-gray-900 dark:bg-white text-white dark:text-gray-900 py-2 px-4 rounded-lg text-sm sm:text-base hover:bg-gray-800 transition-all"
+          >
+            Load More
+          </button>
+        )}
+      </div>
     </>
   );
 };

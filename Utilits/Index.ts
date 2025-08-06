@@ -239,3 +239,12 @@ export const ProducView = [
     price: 2700,
   },
 ];
+
+
+
+export const prodDetails= [
+  { image: "/prodDetails1.png" },
+  { image: "/prodDetails2.jpg" },
+  { image: "/prodDetails3.jpg" },
+  { image: "/prodDetails4.jpg" },
+];

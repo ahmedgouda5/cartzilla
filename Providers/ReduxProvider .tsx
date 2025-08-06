@@ -1,4 +1,3 @@
-// app/providers.tsx
 "use client";
 import HeroNav from "@/components/HeroNav";
 import { Toaster } from "sonner";
@@ -8,8 +7,12 @@ import { Footer } from "@/components/Footer";
 import { Provider } from "react-redux";
 import { store } from "../store/store";
 import AOSProvider from "@/components/AOSProvider";
+import { useIsAuthPage } from "../hooks/useIsAuthPage";
 
 export function ReduxProvider({ children }: { children: React.ReactNode }) {
+ const isAuthPage = useIsAuthPage();
+
+  
   return  <>
       <AOSProvider />
       <Provider store={store}>
@@ -20,10 +23,10 @@ export function ReduxProvider({ children }: { children: React.ReactNode }) {
             disableTransitionOnChange
           >
             <div className="w-[90%] mx-auto min-h-screen relative overflow-hidden">
-              <nav>
+              <nav className={isAuthPage ? "hidden" : "block"}>
                 <Navbar />
               </nav>
-              <section>
+              <section className={isAuthPage ? "hidden" : "block"}>
                 <HeroNav />
               </section>
               <main>{children}</main>
@@ -34,7 +37,7 @@ export function ReduxProvider({ children }: { children: React.ReactNode }) {
                 }}
               />
             </div>
-            <footer className="bg-gray-800">
+            <footer className={isAuthPage ? "hidden" : "block bg-gray-800"}>
               <Footer />
             </footer>
           </ThemeProvider>

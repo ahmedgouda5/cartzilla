@@ -16,10 +16,11 @@ import { addToCart } from "../../store/slices/Cartslice";
 import Link from "next/link";
 import { Products } from "../../Utilits/Index";
 import { toast } from "sonner";
+import { useRouter } from "next/navigation";
 
 const ProductsShow = () => {
   const swiperRef = useRef<SwiperClass | null>(null);
-
+  const router = useRouter();
   const dispatch = useDispatch<AppDispatch>();
 
   return (
@@ -63,6 +64,9 @@ const ProductsShow = () => {
           {Products.map((image, index) => (
             <SwiperSlide key={index}>
               <div
+                onClick={() => {
+                  router.push(`/products/${index}`);
+                }}
                 data-aos="zoom-in-down"
                 className="group relative flex flex-col  shadow-md rounded-lg overflow-hidden transition-all duration-300 w-full max-w-xs sm:max-w-sm md:max-w-md"
               >

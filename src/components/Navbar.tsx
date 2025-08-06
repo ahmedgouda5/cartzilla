@@ -32,11 +32,7 @@ const Navbar = () => {
             <span className="absolute left-0 -bottom-1 h-[2px] w-0 bg-black dark:bg-white transition-all duration-300 group-hover:w-full"></span>
           </li>
           <li className="relative group cursor-pointer">
-            <Link href="/account">Account</Link>
-            <span className="absolute left-0 -bottom-1 h-[2px] w-0 bg-black dark:bg-white transition-all duration-300 group-hover:w-full"></span>
-          </li>
-          <li className="relative group cursor-pointer">
-            <Link href="/pages">Pages</Link>
+            <Link href="/register">Account</Link>
             <span className="absolute left-0 -bottom-1 h-[2px] w-0 bg-black dark:bg-white transition-all duration-300 group-hover:w-full"></span>
           </li>
         </ul>

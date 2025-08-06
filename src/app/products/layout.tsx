@@ -1,12 +1,20 @@
-import ProductsNav from "@/components/ProductsNav";
+"use client";
 
-const layout = ({ children }: { children: React.ReactNode }) => {
+import ProductsNav from "@/components/ProductsNav";
+import { usePathname } from "next/navigation";
+
+const Layout = ({ children }: { children: React.ReactNode }) => {
+  const path = usePathname();
+
+  const shouldShowNav = path !== "/products" && path !== "/products/room";
+
   return (
-    <div className="my-24 mb- min-h-screen">
-      <ProductsNav />
+    <div className="my-24 min-h-screen">
+      {!shouldShowNav && <ProductsNav />}
+
       <div>{children}</div>
     </div>
   );
 };
 
-export default layout;
+export default Layout;
