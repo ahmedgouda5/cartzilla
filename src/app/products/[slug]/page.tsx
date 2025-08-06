@@ -14,10 +14,11 @@ type PageProps = {
   };
 };
 
-const page = ({ params }: PageProps) => {
-  let name;
+const Page = async ({ params }: PageProps) => {
+  let name ;
   if (params) {
-    name = "product page";
+    name= "product page";
+
   }
   return (
     <div className="p-4 sm:p-6 container mx-auto">
@@ -124,4 +125,4 @@ const page = ({ params }: PageProps) => {
   );
 };
 
-export default page;
+export default Page;
