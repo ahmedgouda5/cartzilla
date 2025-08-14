@@ -11,9 +11,10 @@ import ProductsShow from "@/components/ProductsShow";
 export default async function Page({
   params,
 }: {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 }) {
-  const name = "product page";
+  const { slug } = await params; // فك الباراميتر عشان يشتغل مع Next 15
+  const name = slug || "product page";
 
   return (
     <div className="p-4 sm:p-6 container mx-auto">
