@@ -8,18 +8,15 @@ import { FaRegHeart } from "react-icons/fa";
 import AccordionDesc from "@/components/AccordionDesc";
 import ProductsShow from "@/components/ProductsShow";
 
-type PageProps = {
+interface PageProps {
   params: {
     slug: string;
   };
-};
+}
 
-const Page = async ({ params }: PageProps) => {
-  let name ;
-  if (params) {
-    name= "product page";
+export default async function Page({ params }: PageProps) {
+  const name = "product page";
 
-  }
   return (
     <div className="p-4 sm:p-6 container mx-auto">
       <h1 className="text-base sm:text-xl font-light mb-4 sm:mb-6 flex items-center flex-wrap gap-1">
@@ -98,7 +95,7 @@ const Page = async ({ params }: PageProps) => {
                 id="countries"
                 className="border-2 dark:border-white rounded-full py-2 px-3 w-full text-gray-900 dark:text-white dark:bg-gray-800 outline-none"
               >
-                <option selected>Choose a country</option>
+                <option defaultValue="">Choose a country</option>
                 <option value="Natural fabric">Natural fabric</option>
                 <option value="Synthetic fabric">Synthetic fabric</option>
                 <option value="Leather">Leather</option>
@@ -123,6 +120,4 @@ const Page = async ({ params }: PageProps) => {
       </div>
     </div>
   );
-};
-
-export default Page;
+}
