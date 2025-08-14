@@ -8,13 +8,11 @@ import { FaRegHeart } from "react-icons/fa";
 import AccordionDesc from "@/components/AccordionDesc";
 import ProductsShow from "@/components/ProductsShow";
 
-interface PageProps {
-  params: {
-    slug: string;
-  };
-}
-
-export default async function Page({ params }: PageProps) {
+export default async function Page({
+  params,
+}: {
+  params: { slug: string };
+}) {
   const name = "product page";
 
   return (
